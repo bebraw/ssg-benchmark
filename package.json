@@ -4,7 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "json-server ./content-server/index.js 1000"
+    "start": "json-server ./content-server 1000",
+    "edge-hybrid": "node ./ssg-variants/edge-hybrid",
+    "edge-only": "node ./ssg-variants/edge-only",
+    "incremental-ssg": "node ./ssg-variants/naive-ssg",
+    "naive-ssg": "node ./ssg-variants/naive-ssg"
   },
   "keywords": [],
   "author": "Juho Vepsäläinen",
