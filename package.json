@@ -10,10 +10,11 @@
   "author": "Juho Vepsäläinen",
   "license": "MIT",
   "dependencies": {
+    "json-server": "^0.17.0",
     "random": "^3.0.6"
   },
   "devDependencies": {
-    "json-server": "^0.17.0",
-    "lorem-ipsum": "^2.0.8"
+    "lorem-ipsum": "^2.0.8",
+    "prettier": "^2.7.1"
   }
 }
