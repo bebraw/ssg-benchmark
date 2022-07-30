@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "json-server ./content-server/index.js 1000",
+    "content-server": "cd content-server && wrangler pages dev . --port=3000",
     "edge-hybrid": "node ./ssg-variants/edge-hybrid",
     "edge-only": "cd ./ssg-variants/edge-only && wrangler pages dev .",
     "incremental-ssg": "node ./ssg-variants/naive-ssg",
@@ -14,7 +14,6 @@
   "author": "Juho Vepsäläinen",
   "license": "MIT",
   "dependencies": {
-    "json-server": "^0.17.0",
     "mkdirp": "^1.0.4",
     "random": "^3.0.6",
     "rmfr": "^2.0.0",
