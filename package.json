@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "json-server ./index.js 1000"
+    "start": "json-server ./content-server/index.js 1000"
   },
   "keywords": [],
   "author": "Juho Vepsäläinen",
