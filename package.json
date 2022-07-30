@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "json-server ./content-server 1000",
+    "start": "json-server ./content-server/index.js 1000",
     "edge-hybrid": "node ./ssg-variants/edge-hybrid",
-    "edge-only": "node ./ssg-variants/edge-only",
+    "edge-only": "cd ./ssg-variants/edge-only && wrangler pages dev .",
     "incremental-ssg": "node ./ssg-variants/naive-ssg",
     "naive-ssg": "node ./ssg-variants/naive-ssg"
   },
@@ -16,7 +16,8 @@
   "dependencies": {
     "json-server": "^0.17.0",
     "mkdirp": "^1.0.4",
-    "random": "^3.0.6"
+    "random": "^3.0.6",
+    "wrangler": "^2.0.23"
   },
   "devDependencies": {
     "lorem-ipsum": "^2.0.8",
