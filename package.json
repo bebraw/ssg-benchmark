@@ -1,0 +1,19 @@
+{
+  "name": "ssg-benchmark",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "json-server ./index.js 1000"
+  },
+  "keywords": [],
+  "author": "Juho Vepsäläinen",
+  "license": "MIT",
+  "dependencies": {
+    "random": "^3.0.6"
+  },
+  "devDependencies": {
+    "json-server": "^0.17.0",
+    "lorem-ipsum": "^2.0.8"
+  }
+}
