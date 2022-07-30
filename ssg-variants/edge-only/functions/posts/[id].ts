@@ -1,4 +1,4 @@
-import postTemplate from "../../../post-template";
+import { postTemplate } from "../../../templates";
 
 // https://github.com/cloudflare/workers-types
 export async function onRequest({ params: { id } }) {

@@ -1,4 +1,4 @@
-function template({ title, content }) {
+function postTemplate({ title, content }) {
   return `<!DOCTYPE html language="en">
   <html>
     <head>
@@ -13,4 +13,4 @@ function template({ title, content }) {
   </html>`;
 }
 
-module.exports = template;
+module.exports = { postTemplate };

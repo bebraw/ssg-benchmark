@@ -2,7 +2,7 @@ const fs = require("fs").promises;
 const path = require("path");
 const rmfr = require("rmfr");
 const mkdirp = require("mkdirp");
-const postTemplate = require("../post-template");
+const { postTemplate } = require("../templates");
 
 // TODO: Implement a Deno version as well?
 async function generate() {
