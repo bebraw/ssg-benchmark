@@ -9,7 +9,8 @@
     "build:incremental-ssg": "node ./ssg-variants/naive-ssg",
     "serve:incremental-ssg": "serve -p 8788 ./ssg-variants/serve-ssg/output",
     "build:naive-ssg": "node ./ssg-variants/naive-ssg",
-    "serve:naive-ssg": "serve -p 8788 ./ssg-variants/naive-ssg/output"
+    "serve:naive-ssg": "serve -p 8788 ./ssg-variants/naive-ssg/output",
+    "test:posts-index": "autocannon http://localhost:8788/posts"
   },
   "keywords": [],
   "author": "Juho Vepsäläinen",
@@ -22,6 +23,7 @@
   },
   "devDependencies": {
     "@playwright/test": "^1.24.2",
+    "autocannon": "^7.9.0",
     "lorem-ipsum": "^2.0.8",
     "prettier": "^2.7.1",
     "serve": "^14.0.1"
