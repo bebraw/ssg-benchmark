@@ -17,3 +17,7 @@ After that you should be able to access `localhost:3000` and the `/posts` behind
 Before running any variant, make sure the content server is running.
 
 To see the available options, use `npm run` and then do `npm run <option>` to execute the one you want.
+
+## TypeScript
+
+TypeScript is used for the edge code (CloudFlare workers) and the setup has been derived from `wrangler init`.
