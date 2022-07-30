@@ -1,7 +1,11 @@
 import { postTemplate } from "../../../templates";
 import type { Post } from "../../../types";
 
-export async function onRequest({ params: { id } }) {
+export async function onRequest({
+  params: { id },
+}: {
+  params: { id: string };
+}) {
   const res = await fetch("http://localhost:3000/posts");
   const posts = await res.json<Post[]>();
 
