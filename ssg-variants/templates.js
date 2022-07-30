@@ -1,4 +1,13 @@
-function postTemplate({ title, content }) {
+function postIndexTemplate({ title, posts }) {
+  return baseTemplate({
+    title,
+    content: `<ul>${posts
+      .map(({ id, title }) => `<li><a href="./${id}">${title}</a></li>`)
+      .join("")}</ul>`,
+  });
+}
+
+function baseTemplate({ title, content }) {
   return `<!DOCTYPE html language="en">
   <html>
     <head>
@@ -13,4 +22,8 @@ function postTemplate({ title, content }) {
   </html>`;
 }
 
-module.exports = { postTemplate };
+module.exports = {
+  baseTemplate,
+  postIndexTemplate,
+  postTemplate: baseTemplate,
+};
