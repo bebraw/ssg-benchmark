@@ -1,25 +1,27 @@
 const fs = require("fs").promises;
 const path = require("path");
+const rmfr = require("rmfr");
 const mkdirp = require("mkdirp");
 const postTemplate = require("../post-template");
 
+// TODO: Implement a Deno version as well?
 async function generate() {
   const outputPath = path.join(__dirname, "output");
+
+  await rmfr(outputPath);
   await mkdirp(outputPath);
 
+  // Better use node-fetch instead?
   const res = await fetch("http://localhost:3000/posts");
   const posts = await res.json();
 
+  // TODO: This could be parallelized/workerized (good variants)
   for (const post of posts) {
-    await fs.writeFile(
-      path.join(outputPath, post.id + ".html"),
-      postTemplate(post)
-    );
-  }
+    const postPath = path.join(outputPath, "posts", post.id.toString());
 
-  // TODO: Generate a page per post
-  // TODO: Define some kind of a html template where to inject the content
-  // That's probably shared between the solutions through a shared module.
+    await mkdirp(postPath);
+    await fs.writeFile(path.join(postPath, "index.html"), postTemplate(post));
+  }
 }
 
 generate();

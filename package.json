@@ -17,6 +17,7 @@
     "json-server": "^0.17.0",
     "mkdirp": "^1.0.4",
     "random": "^3.0.6",
+    "rmfr": "^2.0.0",
     "wrangler": "^2.0.23"
   },
   "devDependencies": {
