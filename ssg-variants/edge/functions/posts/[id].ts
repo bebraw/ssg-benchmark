@@ -1,6 +1,8 @@
 import { postTemplate } from "../../../templates";
 import type { Post } from "../../../types";
 
+const ONE_DAY = 60 * 60 * 24;
+
 export async function onRequest({
   params: { id },
 }: {
@@ -21,6 +23,9 @@ export async function onRequest({
 
   return new Response(postTemplate(foundPost), {
     status: 200,
-    headers: { "content-type": "text/html" },
+    headers: {
+      "content-type": "text/html",
+      "cache-control": `max-age=${ONE_DAY}`,
+    },
   });
 }
