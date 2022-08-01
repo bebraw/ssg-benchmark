@@ -1,18 +1,17 @@
-const fs = require("fs").promises;
-const path = require("path");
-const rmfr = require("rmfr");
-const mkdirp = require("mkdirp");
-const { postIndexTemplate, postTemplate } = require("../templates");
+import fs from "fs/promises";
+import path from "path";
+import rmfr from "rmfr";
+import mkdirp from "mkdirp";
+import fetch from "node-fetch";
+import { postIndexTemplate, postTemplate } from "./templates.js";
 
-// TODO: Implement a Deno version as well?
 async function generate() {
-  const outputPath = path.join(__dirname, "output");
+  const outputPath = path.join(process.cwd(), "dist");
 
   await rmfr(outputPath);
   await mkdirp(outputPath);
 
-  // Better use node-fetch instead?
-  const res = await fetch("http://localhost:3000/api/posts");
+  const res = await fetch("http://localhost:8788/api/posts");
   const posts = await res.json();
   const postsPath = path.join(outputPath, "posts");
 
