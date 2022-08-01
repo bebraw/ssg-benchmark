@@ -1,7 +1,8 @@
-import { getPosts } from "../../content.mjs";
+// import { getPosts } from "../../content.mjs";
 
 const ONE_HOUR = 60 * 60;
-const POSTS = getPosts();
+//const POSTS = getPosts();
+const POSTS: string[] = [];
 
 export function onRequest() {
   return new Response(JSON.stringify(POSTS, null, 2), {
