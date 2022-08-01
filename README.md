@@ -10,7 +10,7 @@ To run the content server, do the following:
 1. `npm install` to install dependencies
 2. `npm run serve:content` to run the content server
 
-After that you should be able to access `localhost:3000` and the `/posts` behind it.
+After that you should be able to access `localhost:3000` and the `/api/posts` behind it.
 
 ## Site generation variants
 

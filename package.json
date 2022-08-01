@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "serve:content": "cd content-server && wrangler pages dev . --port=3000",
+    "serve:content": "wrangler pages dev . --port=3000",
     "serve:edge": "cd ./ssg-variants/edge && wrangler pages dev .",
     "build:incremental-ssg": "node ./ssg-variants/naive-ssg",
     "serve:incremental-ssg": "serve -p 8788 ./ssg-variants/serve-ssg/output",
@@ -24,6 +24,7 @@
   "devDependencies": {
     "@cloudflare/workers-types": "^3.14.1",
     "@playwright/test": "^1.24.2",
+    "@types/seedrandom": "^3.0.2",
     "autocannon": "^7.9.0",
     "lorem-ipsum": "^2.0.8",
     "prettier": "^2.7.1",

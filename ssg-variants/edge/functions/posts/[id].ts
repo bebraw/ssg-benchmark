@@ -8,7 +8,7 @@ export async function onRequest({
 }: {
   params: { id: string };
 }) {
-  const res = await fetch("http://localhost:3000/posts");
+  const res = await fetch("http://localhost:3000/api/posts");
   const posts = await res.json<Post[]>();
 
   const idAsNumber = parseInt(id, 10);

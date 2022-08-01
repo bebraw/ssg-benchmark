@@ -12,7 +12,7 @@ async function generate() {
   await mkdirp(outputPath);
 
   // Better use node-fetch instead?
-  const res = await fetch("http://localhost:3000/posts");
+  const res = await fetch("http://localhost:3000/api/posts");
   const posts = await res.json();
   const postsPath = path.join(outputPath, "posts");
 

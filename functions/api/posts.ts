@@ -4,6 +4,7 @@ import seedrandom from "seedrandom";
 
 const ONE_HOUR = 60 * 60;
 
+// @ts-expect-error Looks like seedrandom TS API has a bug
 random.use(seedrandom("panda"));
 
 const lorem = new LoremIpsum({ random: random.float });
