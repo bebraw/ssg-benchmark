@@ -2,20 +2,18 @@ import fs from "fs/promises";
 import path from "path";
 import rmfr from "rmfr";
 import mkdirp from "mkdirp";
-import fetch from "node-fetch";
-import { postIndexTemplate, postTemplate } from "./templates.js";
+import { postIndexTemplate, postTemplate } from "./templates.mjs";
+import { getPosts } from "./content.mjs";
 
 async function generate() {
   const outputPath = path.join(process.cwd(), "dist");
-
   await rmfr(outputPath);
   await mkdirp(outputPath);
 
-  const res = await fetch("http://localhost:8788/api/posts");
-  const posts = await res.json();
   const postsPath = path.join(outputPath, "posts");
-
   await mkdirp(postsPath);
+
+  const posts = getPosts();
   await fs.writeFile(
     path.join(postsPath, "index.html"),
     postIndexTemplate({ title: "Posts", posts })

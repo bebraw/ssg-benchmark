@@ -23,8 +23,4 @@ function baseTemplate({ title, content }) {
   </html>`;
 }
 
-module.exports = {
-  baseTemplate,
-  postIndexTemplate,
-  postTemplate: baseTemplate,
-};
+export { baseTemplate, postIndexTemplate, baseTemplate as postTemplate };

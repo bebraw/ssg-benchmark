@@ -1,4 +1,4 @@
-import { postIndexTemplate } from "../../templates";
+import { postIndexTemplate } from "../../templates.mjs";
 
 const ONE_HOUR = 60 * 60;
 
