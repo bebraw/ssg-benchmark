@@ -1,8 +1,10 @@
 import { LoremIpsum } from "lorem-ipsum";
-import seed from "seed-random";
+import seed from "seedrandom";
+
+const random = seed("panda");
 
 function getPosts(n = 1000) {
-  const lorem = new LoremIpsum({ random: seed("panda") });
+  const lorem = new LoremIpsum({ random });
 
   return Array.from(Array(n).keys()).map((id) => ({
     id,
