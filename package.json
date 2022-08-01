@@ -7,7 +7,8 @@
     "start": "wrangler pages dev .",
     "build": "ts-node ./ssg.ts",
     "serve": "serve -p 8788 ./dist",
-    "test:posts-index": "autocannon http://localhost:8788/posts"
+    "test:edge": "autocannon https://ssg-benchmark.pages.dev/edge/posts/",
+    "test:ssg": "autocannon https://ssg-benchmark.pages.dev/ssg/posts/"
   },
   "keywords": [],
   "author": "Juho Vepsäläinen",
