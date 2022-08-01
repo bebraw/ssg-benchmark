@@ -1,12 +1,12 @@
-import { LoremIpsum } from "lorem-ipsum";
+// import { LoremIpsum } from "lorem-ipsum";
 
 function getPosts(n = 1000) {
-  const lorem = new LoremIpsum({ random: Math.random });
+  // const lorem = new LoremIpsum({ random: Math.random });
 
   return Array.from(Array(n).keys()).map((id) => ({
     id,
-    title: lorem.generateWords(4),
-    content: lorem.generateParagraphs(20),
+    title: "title", // lorem.generateWords(4),
+    content: "content", // lorem.generateParagraphs(20),
   }));
 }
 
