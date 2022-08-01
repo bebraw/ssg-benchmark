@@ -1,7 +1,7 @@
 import { postTemplate } from "../../../templates";
 import type { Post } from "../../../types";
 
-const ONE_DAY = 60 * 60 * 24;
+const ONE_HOUR = 60 * 60;
 
 export async function onRequest({
   params: { id },
@@ -25,7 +25,7 @@ export async function onRequest({
     status: 200,
     headers: {
       "content-type": "text/html",
-      "cache-control": `max-age=${ONE_DAY}`,
+      "cache-control": `max-age=${ONE_HOUR}`,
     },
   });
 }
