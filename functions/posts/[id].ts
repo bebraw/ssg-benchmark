@@ -5,11 +5,12 @@ const ONE_HOUR = 60 * 60;
 
 export async function onRequest({
   params: { id },
+  request: { url },
 }: {
   params: { id: string };
+  request: { url: string };
 }) {
-  // TODO: How to fetch from a sibling?
-  const res = await fetch("http://localhost:8788/api/posts");
+  const res = await fetch(`${new URL(url).origin}/api/posts`);
   const posts = await res.json<Post[]>();
 
   const idAsNumber = parseInt(id, 10);
