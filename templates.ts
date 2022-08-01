@@ -1,19 +1,36 @@
 import type { Post } from "./types";
 
-function postIndexTemplate({ title, posts }: { title: string; posts: Post[] }) {
+function postIndexTemplate({
+  base,
+  title,
+  posts,
+}: {
+  base: string;
+  title: string;
+  posts: Post[];
+}) {
   return baseTemplate({
+    base,
     title,
     content: `<ul>${posts
-      .map(({ id, title }) => `<li><a href="/posts/${id}">${title}</a></li>`)
+      .map(({ id, title }) => `<li><a href="./${id}">${title}</a></li>`)
       .join("")}</ul>`,
   });
 }
 
-// To allow relative urls, it would be possible to set <base href="/posts/"> here
-function baseTemplate({ title, content }: { title: string; content: string }) {
+function baseTemplate({
+  base,
+  title,
+  content,
+}: {
+  base: string;
+  title: string;
+  content: string;
+}) {
   return `<!DOCTYPE html language="en">
   <html>
     <head>
+      <base href="${base}" />
       <title>${title}</title>
     </head>
     <body>

@@ -1,5 +1,5 @@
-import { postTemplate } from "../../templates.mjs";
-import type { Post } from "../../types";
+import { postTemplate } from "../../../templates";
+import type { Post } from "../../../types";
 
 const ONE_HOUR = 60 * 60;
 
@@ -23,7 +23,7 @@ export async function onRequest({
     });
   }
 
-  return new Response(postTemplate(foundPost), {
+  return new Response(postTemplate({ ...foundPost, base: "/edge/posts/" }), {
     status: 200,
     headers: {
       "content-type": "text/html",
