@@ -1,5 +1,5 @@
-import { postTemplate } from "../../../templates";
-import type { Post } from "../../../types";
+import { postTemplate } from "../../templates";
+import type { Post } from "../../types";
 
 const ONE_HOUR = 60 * 60;
 
@@ -8,7 +8,8 @@ export async function onRequest({
 }: {
   params: { id: string };
 }) {
-  const res = await fetch("http://localhost:3000/api/posts");
+  // TODO: How to fetch from a sibling?
+  const res = await fetch("http://localhost:8788/api/posts");
   const posts = await res.json<Post[]>();
 
   const idAsNumber = parseInt(id, 10);

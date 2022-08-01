@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "serve:content": "wrangler pages dev . --port=3000",
-    "serve:edge": "cd ./ssg-variants/edge && wrangler pages dev .",
+    "start": "wrangler pages dev .",
     "build:incremental-ssg": "node ./ssg-variants/naive-ssg",
     "serve:incremental-ssg": "serve -p 8788 ./ssg-variants/serve-ssg/output",
     "build:naive-ssg": "node ./ssg-variants/naive-ssg",
