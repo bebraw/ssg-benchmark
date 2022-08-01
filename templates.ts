@@ -1,4 +1,6 @@
-function postIndexTemplate({ title, posts }) {
+import type { Post } from "./types";
+
+function postIndexTemplate({ title, posts }: { title: string; posts: Post[] }) {
   return baseTemplate({
     title,
     content: `<ul>${posts
@@ -8,7 +10,7 @@ function postIndexTemplate({ title, posts }) {
 }
 
 // To allow relative urls, it would be possible to set <base href="/posts/"> here
-function baseTemplate({ title, content }) {
+function baseTemplate({ title, content }: { title: string; content: string }) {
   return `<!DOCTYPE html language="en">
   <html>
     <head>

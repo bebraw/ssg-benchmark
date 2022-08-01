@@ -2,8 +2,8 @@ import fs from "fs/promises";
 import path from "path";
 import rmfr from "rmfr";
 import mkdirp from "mkdirp";
-import { postIndexTemplate, postTemplate } from "./templates.mjs";
-import { getPosts } from "./content.mjs";
+import { postIndexTemplate, postTemplate } from "./templates";
+import { getPosts } from "./content";
 
 async function generate() {
   const outputPath = path.join(process.cwd(), "dist");
