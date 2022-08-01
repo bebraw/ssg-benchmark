@@ -7,6 +7,7 @@
     "start": "wrangler pages dev .",
     "build": "ts-node ./ssg.ts",
     "serve": "serve -p 8788 ./dist",
+    "test:breezewind-on-edge": "autocannon https://ssg-benchmark.pages.dev/breezewind-on-edge/posts/",
     "test:edge": "autocannon https://ssg-benchmark.pages.dev/edge/posts/",
     "test:ssg": "autocannon https://ssg-benchmark.pages.dev/ssg/posts/"
   },
@@ -14,6 +15,7 @@
   "author": "Juho Vepsäläinen",
   "license": "MIT",
   "dependencies": {
+    "breezewind": "^0.1.0",
     "mkdirp": "^1.0.4",
     "rmfr": "^2.0.0",
     "wrangler": "^2.0.23"
