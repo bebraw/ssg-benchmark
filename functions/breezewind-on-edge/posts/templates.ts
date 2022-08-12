@@ -1,4 +1,4 @@
-import breeze from "breezewind";
+import breeze, { type Component } from "breezewind";
 import type { Post } from "../../../types";
 
 async function postIndexTemplate({
@@ -15,11 +15,11 @@ async function postIndexTemplate({
     title,
     content: [
       {
-        element: "ul",
+        type: "ul",
         children: posts.map(({ id, title }) => ({
-          element: "li",
+          type: "li",
           children: [
-            { element: "a", attributes: { href: `./${id}` }, children: title },
+            { type: "a", attributes: { href: `./${id}` }, children: title },
           ],
         })),
       },
@@ -34,8 +34,7 @@ function baseTemplate({
 }: {
   base: string;
   title: string;
-  // TODO: Figure out how to get Components type from breezewind correctly
-  content: Record<string, unknown>[] | string;
+  content: Component["children"];
 }) {
   // Note that content is injected directly without going through context
   // as it happens to be possible in this case. For pure JSON that's not
@@ -43,7 +42,7 @@ function baseTemplate({
   return breeze({
     component: [
       {
-        element: "!DOCTYPE",
+        type: "!DOCTYPE",
         attributes: {
           html: "",
           language: "en",
@@ -51,37 +50,36 @@ function baseTemplate({
         closingCharacter: "",
       },
       {
-        element: "html",
+        type: "html",
         attributes: {},
         children: [
           {
-            element: "head",
+            type: "head",
             children: [
               {
-                element: "base",
+                type: "base",
                 attributes: {
                   href: base,
                 },
               },
               {
-                element: "title",
+                type: "title",
                 children: title,
               },
             ],
           },
           {
-            element: "body",
+            type: "body",
             children: [
               {
-                element: "main",
+                type: "main",
                 children: [
                   {
-                    element: "h1",
+                    type: "h1",
                     children: title,
                   },
                   {
-                    element: "div",
-                    // @ts-ignore TODO: Fix breezewind type exports
+                    type: "div",
                     children: content,
                   },
                 ],
