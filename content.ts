@@ -18,7 +18,14 @@ Mel facete vidisse laoreet ea. No vis saepe officiis comprehensam, nec an impedi
 Possit omittam moderatius ne mei, nihil saperet molestiae ne pro. Mei dolore sensibus in, accusamus appellantur duo in, ne eos magna propriae. Tale nobis delicata ne quo, at ius vocibus mnesarchum, nec facer debitis sapientem in. Ex pro dolore civibus eleifend, vivendum delicatissimi est ei. Nostrud volutpat cotidieque ut pro, cibo patrioque dissentias ea eos. Summo movet ut cum, mea legendos moderatius neglegentur eu.`;
 
 function loremIpsum(start: number, amount: number) {
-  return LOREM_IPSUM.split(" ")
+  const parts = LOREM_IPSUM.split(" ");
+
+  // Generate enough text to cover the requested amount
+  return Array.from(
+    Array(Math.ceil((start + amount) / parts.length)),
+    (_, i) => i
+  )
+    .flatMap(() => parts)
     .slice(start, start + amount)
     .join(" ");
 }
