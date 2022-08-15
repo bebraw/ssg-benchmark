@@ -3,8 +3,8 @@ import path from "path";
 import { performance } from "perf_hooks";
 import rmfr from "rmfr";
 import mkdirp from "mkdirp";
-import { postIndexTemplate, postTemplate } from "./templates";
-import { getPosts } from "./content";
+import { postIndexTemplate, postTemplate } from "../templates";
+import { getPosts } from "../content";
 
 async function generate() {
   const outputPath = path.join(process.cwd(), "dist");

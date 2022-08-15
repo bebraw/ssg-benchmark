@@ -6,7 +6,7 @@
   "scripts": {
     "start": "wrangler pages dev .",
     "build:all": "npm run build:breezewind",
-    "build:breezewind": "tsx ./ssg.ts",
+    "build:breezewind": "tsx ./ssg/breezewind.ts",
     "serve": "serve -p 8788 ./dist",
     "test:breezewind-on-edge": "autocannon https://ssg-benchmark.pages.dev/breezewind-on-edge/posts/",
     "test:edge": "autocannon https://ssg-benchmark.pages.dev/edge/posts/",
