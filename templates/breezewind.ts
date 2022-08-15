@@ -1,5 +1,5 @@
 import breeze, { type Component } from "breezewind";
-import type { Post } from "../../../types";
+import type { Post } from "../types";
 
 async function postIndexTemplate({
   base,
