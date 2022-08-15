@@ -19,3 +19,15 @@ To see the available options, use `npm run` and then do `npm run <option>` to ex
 ## TypeScript
 
 TypeScript is used for the edge code (CloudFlare workers) and the setup has been derived from `wrangler init`.
+
+## Tools
+
+* https://github.com/Polymer/tachometer
+* https://www.npmjs.com/package/benny
+
+## Benchmarks
+
+* https://www.zachleat.com/web/build-benchmark/
+* https://github.com/BuilderIO/framework-benchmarks
+* https://eklausmeier.goip.de/blog/2021/11-13-performance-comparison-saaze-vs-hugo-vs-zola/
+* https://github.com/seancdavis/ssg-build-performance-tests
