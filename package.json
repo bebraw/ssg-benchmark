@@ -15,7 +15,7 @@
   "author": "Juho Vepsäläinen",
   "license": "MIT",
   "dependencies": {
-    "breezewind": "^0.4.1",
+    "breezewind": "^1.0.0",
     "mkdirp": "^1.0.4",
     "rmfr": "^2.0.0",
     "wrangler": "^2.0.25"
@@ -24,7 +24,7 @@
     "@cloudflare/workers-types": "^3.14.1",
     "@playwright/test": "^1.25.0",
     "@types/mkdirp": "^1.0.2",
-    "@types/node": "^18.7.2",
+    "@types/node": "^18.7.3",
     "@types/rmfr": "^2.0.1",
     "autocannon": "^7.9.0",
     "prettier": "^2.7.1",
