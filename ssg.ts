@@ -1,5 +1,6 @@
 import fs from "fs/promises";
 import path from "path";
+import { performance } from "perf_hooks";
 import rmfr from "rmfr";
 import mkdirp from "mkdirp";
 import { postIndexTemplate, postTemplate } from "./templates";
@@ -12,6 +13,8 @@ async function generate() {
 
   const postsPath = path.join(outputPath, "ssg", "posts");
   await mkdirp(postsPath);
+
+  const t0 = performance.now();
 
   const base = "/ssg/posts/";
   const posts = getPosts();
@@ -30,6 +33,10 @@ async function generate() {
       postTemplate({ ...post, base })
     );
   }
+
+  const t1 = performance.now();
+
+  console.log(`Breezewind built in ${(t1 - t0).toFixed(2)} milliseconds.`);
 }
 
 generate();

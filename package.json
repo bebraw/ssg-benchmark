@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "wrangler pages dev .",
-    "build": "ts-node ./ssg.ts",
+    "build:all": "npm run build:breezewind",
+    "build:breezewind": "tsx ./ssg.ts",
     "serve": "serve -p 8788 ./dist",
     "test:breezewind-on-edge": "autocannon https://ssg-benchmark.pages.dev/breezewind-on-edge/posts/",
     "test:edge": "autocannon https://ssg-benchmark.pages.dev/edge/posts/",
@@ -29,8 +30,8 @@
     "autocannon": "^7.9.0",
     "prettier": "^2.7.1",
     "serve": "^14.0.1",
-    "ts-node": "^10.9.1",
     "tslib": "^2.4.0",
+    "tsx": "^3.8.2",
     "typescript": "^4.7.4"
   }
 }
