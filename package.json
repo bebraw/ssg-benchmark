@@ -7,8 +7,9 @@
     "start": "wrangler pages dev .",
     "prebenchmark:ssg": "rm -rf ./benchmark-output",
     "benchmark:ssg": "tsx ./benchmark-suites/ssg.ts",
-    "build:all": "npm run build:breezewind && npm run build:vanilla",
+    "build:all": "npm run build:breezewind && npm run build:11ty && npm run build:vanilla",
     "build:breezewind": "tsx ./ssg/breezewind.ts",
+    "build:11ty": "tsx ./ssg/11ty.ts",
     "build:vanilla": "tsx ./ssg/vanilla.ts",
     "serve:benchmark": "serve -p 8788 ./benchmark-output",
     "serve:static": "serve -p 8788 ./dist",
@@ -26,6 +27,7 @@
     "wrangler": "^2.0.25"
   },
   "devDependencies": {
+    "@11ty/eleventy": "^1.0.1",
     "@cloudflare/workers-types": "^3.14.1",
     "@playwright/test": "^1.25.0",
     "@types/mkdirp": "^1.0.2",

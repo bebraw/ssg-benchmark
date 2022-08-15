@@ -45,17 +45,31 @@ function baseTemplate({
         type: "!DOCTYPE",
         attributes: {
           html: "",
-          language: "en",
         },
         closingCharacter: "",
       },
       {
         type: "html",
-        attributes: {},
+        attributes: {
+          lang: "en",
+        },
         children: [
           {
             type: "head",
             children: [
+              {
+                type: "meta",
+                attributes: {
+                  charset: "UTF-8",
+                },
+              },
+              {
+                type: "meta",
+                attributes: {
+                  content: "width=device-width, initial-scale=1.0",
+                  name: "viewport",
+                },
+              },
               {
                 type: "base",
                 attributes: {

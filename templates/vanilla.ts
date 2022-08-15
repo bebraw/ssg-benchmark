@@ -27,9 +27,11 @@ function baseTemplate({
   title: string;
   content: string;
 }) {
-  return `<!DOCTYPE html language="en">
-  <html>
+  return `<!DOCTYPE html>
+  <html lang="en">
     <head>
+      <meta charset="UTF-8" />
+      <meta content="width=device-width, initial-scale=1.0" name="viewport" />
       <base href="${base}" />
       <title>${title}</title>
     </head>

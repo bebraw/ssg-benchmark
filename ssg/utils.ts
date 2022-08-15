@@ -33,9 +33,10 @@ async function generate(
   await createDirectory(outputPath);
   await createDirectory(postsPath);
 
-  const elapsedTime = await measure(async () => {
+  const posts = getPosts(amountOfPosts);
+
+  return await measure(async () => {
     const base = "/ssg/posts/";
-    const posts = getPosts(amountOfPosts);
     await fs.writeFile(
       path.join(postsPath, "index.html"),
       await postIndexTemplate({ base, title: "Posts", posts })
@@ -52,8 +53,6 @@ async function generate(
       );
     }
   });
-
-  return elapsedTime;
 }
 
 async function createDirectory(p: string) {
