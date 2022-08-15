@@ -1,4 +1,12 @@
 import { postIndexTemplate, postTemplate } from "../templates/vanilla";
 import { generate } from "./utils";
 
-generate("vanilla", postIndexTemplate, postTemplate);
+function run() {
+  generate("vanilla", postIndexTemplate, postTemplate);
+}
+
+if (import.meta) {
+  run();
+}
+
+export { run };

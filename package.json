@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "wrangler pages dev .",
+    "benchmark:ssg": "tsx ./benchmark-suites/ssg.ts",
     "build:all": "npm run build:breezewind && npm run build:vanilla",
     "build:breezewind": "tsx ./ssg/breezewind.ts",
     "build:vanilla": "tsx ./ssg/vanilla.ts",
@@ -29,6 +30,7 @@
     "@types/node": "^18.7.3",
     "@types/rmfr": "^2.0.1",
     "autocannon": "^7.9.0",
+    "benny": "^3.7.1",
     "prettier": "^2.7.1",
     "serve": "^14.0.1",
     "tslib": "^2.4.0",

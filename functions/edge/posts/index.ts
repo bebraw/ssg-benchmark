@@ -1,4 +1,4 @@
-import { postIndexTemplate } from "../../../templates";
+import { postIndexTemplate } from "../../../templates/vanilla";
 import type { Post } from "../../../types";
 
 const ONE_HOUR = 60 * 60;
