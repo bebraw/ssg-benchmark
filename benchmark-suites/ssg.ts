@@ -1,18 +1,16 @@
 import b from "benny";
+import runBreezewind from "../ssg/breezewind";
+import runVanilla from "../ssg/vanilla";
+
+const SUITE_NAME = "ssg";
+const BENCHMARK_OUTPUT = "benchmark-output";
 
 b.suite(
-  "Example",
-
-  b.add("Reduce two elements", () => {
-    [1, 2].reduce((a, b) => a + b);
-  }),
-
-  b.add("Reduce five elements", () => {
-    [1, 2, 3, 4, 5].reduce((a, b) => a + b);
-  }),
-
+  SUITE_NAME,
+  b.add("breezewind", runBreezewind),
+  b.add("vanilla", runVanilla),
   b.cycle(),
   b.complete(),
-  b.save({ file: "reduce", version: "1.0.0" }),
-  b.save({ file: "reduce", format: "chart.html" })
+  b.save({ file: SUITE_NAME, folder: BENCHMARK_OUTPUT, version: "1.0.0" }),
+  b.save({ file: SUITE_NAME, folder: BENCHMARK_OUTPUT, format: "chart.html" })
 );

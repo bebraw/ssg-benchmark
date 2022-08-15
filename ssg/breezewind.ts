@@ -5,8 +5,8 @@ function run() {
   generate("breezewind", postIndexTemplate, postTemplate);
 }
 
-if (import.meta) {
+if (require.main === module) {
   run();
 }
 
-export { run };
+export default run;

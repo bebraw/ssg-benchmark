@@ -5,11 +5,13 @@
   "main": "index.js",
   "scripts": {
     "start": "wrangler pages dev .",
+    "prebenchmark:ssg": "rm -rf ./benchmark-output",
     "benchmark:ssg": "tsx ./benchmark-suites/ssg.ts",
     "build:all": "npm run build:breezewind && npm run build:vanilla",
     "build:breezewind": "tsx ./ssg/breezewind.ts",
     "build:vanilla": "tsx ./ssg/vanilla.ts",
-    "serve": "serve -p 8788 ./dist",
+    "serve:benchmark": "serve -p 8788 ./benchmark-output",
+    "serve:static": "serve -p 8788 ./dist",
     "test:breezewind-on-edge": "autocannon https://ssg-benchmark.pages.dev/breezewind-on-edge/posts/",
     "test:edge": "autocannon https://ssg-benchmark.pages.dev/edge/posts/",
     "test:ssg": "autocannon https://ssg-benchmark.pages.dev/ssg/posts/"

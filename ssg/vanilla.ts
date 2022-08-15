@@ -5,8 +5,8 @@ function run() {
   generate("vanilla", postIndexTemplate, postTemplate);
 }
 
-if (import.meta) {
+if (require.main === module) {
   run();
 }
 
-export { run };
+export default run;
