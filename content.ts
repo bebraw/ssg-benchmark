@@ -1,3 +1,5 @@
+import { range } from "./utils";
+
 function getPosts(n = 1000) {
   return Array.from(Array(n).keys()).map((id) => ({
     id,
@@ -21,10 +23,7 @@ function loremIpsum(start: number, amount: number) {
   const parts = LOREM_IPSUM.split(" ");
 
   // Generate enough text to cover the requested amount
-  return Array.from(
-    Array(Math.ceil((start + amount) / parts.length)),
-    (_, i) => i
-  )
+  return range(Math.ceil((start + amount) / parts.length))
     .flatMap(() => parts)
     .slice(start, start + amount)
     .join(" ");

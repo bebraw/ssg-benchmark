@@ -24,8 +24,9 @@ async function generate(
     base: string;
     title: string;
     content: string;
-  }) => Promise<string> | string
-) {
+  }) => Promise<string> | string,
+  amountOfPosts?: number
+): Promise<number> {
   const outputPath = path.join(process.cwd(), "dist", generatorName);
   const postsPath = path.join(outputPath, "ssg", "posts");
 
@@ -34,7 +35,7 @@ async function generate(
 
   const elapsedTime = await measure(async () => {
     const base = "/ssg/posts/";
-    const posts = getPosts();
+    const posts = getPosts(amountOfPosts);
     await fs.writeFile(
       path.join(postsPath, "index.html"),
       await postIndexTemplate({ base, title: "Posts", posts })
@@ -52,9 +53,7 @@ async function generate(
     }
   });
 
-  console.log(
-    `${generatorName} built in ${elapsedTime.toFixed(2)} milliseconds.`
-  );
+  return elapsedTime;
 }
 
 async function createDirectory(p: string) {
