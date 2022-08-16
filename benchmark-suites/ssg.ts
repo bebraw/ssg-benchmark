@@ -1,7 +1,7 @@
 import b from "benny";
-import runBreezewind from "../ssg/breezewind";
-import run11ty from "../ssg/11ty";
-import runVanilla from "../ssg/vanilla";
+import { run as runBreezewind } from "../ssg/breezewind";
+import { init as init11ty, run as run11ty } from "../ssg/11ty";
+import { run as runVanilla } from "../ssg/vanilla";
 
 const SUITE_NAME = "ssg";
 const BENCHMARK_OUTPUT = "benchmark-output";
@@ -10,12 +10,18 @@ const OPTIONS = [1000];
 function runOnce() {
   return b.suite(
     SUITE_NAME,
-    ...OPTIONS.map((o) =>
-      b.add(`breezewind (${o})`, async () => await runBreezewind(o))
+    ...OPTIONS.map((amount) =>
+      b.add(`breezewind (${amount})`, async () => await runBreezewind(amount))
     ),
-    ...OPTIONS.map((o) => b.add(`11ty (${o})`, async () => await run11ty(o))),
-    ...OPTIONS.map((o) =>
-      b.add(`vanilla (${o})`, async () => await runVanilla(o))
+    ...OPTIONS.map((amount) =>
+      b.add(`11ty (${amount})`, async () => {
+        await init11ty(amount);
+
+        return () => run11ty();
+      })
+    ),
+    ...OPTIONS.map((amount) =>
+      b.add(`vanilla (${amount})`, async () => await runVanilla(amount))
     ),
     b.cycle(),
     b.complete(),

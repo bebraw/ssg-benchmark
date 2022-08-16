@@ -24,4 +24,4 @@ if (require.main === module) {
   runOnce();
 }
 
-export default run;
+export { run };

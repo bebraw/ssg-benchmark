@@ -1,16 +1,16 @@
 import b from "benny";
-import runVanilla from "../ssg/vanilla";
+import { run as runVanilla } from "../ssg/vanilla";
 import { range } from "../utils";
 
 const SUITE_NAME = "scaling";
 const BENCHMARK_OUTPUT = "benchmark-output";
 const OPTIONS = range(3, (i) => Math.pow(10, i));
 
-function runOnce() {
+function run() {
   return b.suite(
     SUITE_NAME,
-    ...OPTIONS.map((o) =>
-      b.add(`vanilla (${o})`, async () => await runVanilla(o))
+    ...OPTIONS.map((amount) =>
+      b.add(`vanilla (${amount})`, async () => await runVanilla(amount))
     ),
     b.cycle(),
     b.complete(),
@@ -20,7 +20,7 @@ function runOnce() {
 }
 
 if (require.main === module) {
-  runOnce();
+  run();
 }
 
-export default runOnce;
+export default run;
