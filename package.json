@@ -23,17 +23,20 @@
   "author": "Juho Vepsäläinen",
   "license": "MIT",
   "dependencies": {
+    "@11ty/eleventy": "^1.0.1",
     "breezewind": "^1.0.0",
     "mkdirp": "^1.0.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "rmfr": "^2.0.0",
     "wrangler": "^2.0.25"
   },
   "devDependencies": {
-    "@11ty/eleventy": "^1.0.1",
     "@cloudflare/workers-types": "^3.14.1",
     "@playwright/test": "^1.25.0",
     "@types/mkdirp": "^1.0.2",
     "@types/node": "^18.7.3",
+    "@types/react": "^18.0.17",
     "@types/rmfr": "^2.0.1",
     "autocannon": "^7.9.0",
     "benny": "^3.7.1",
