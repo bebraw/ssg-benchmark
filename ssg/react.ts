@@ -1,20 +1,17 @@
 import ReactDOMServer from "react-dom/server";
 import { postIndexTemplate, postTemplate } from "../templates/react";
-import { measure } from "./utils";
+import { generate } from "./utils";
 
 const GENERATOR_NAME = "react";
 
 function run(amountOfPosts?: number) {
-  return measure(async () => {
-    // TODO: Test renderToPipeableStream() as well to see how streaming
-    // approach compares to the vanilla one
-    // TODO: Set up file ops etc. (extract from utils)
-    const markup = ReactDOMServer.renderToStaticMarkup(
-      postIndexTemplate({ base: "/posts/", title: "Posts", posts: [] })
-    );
-
-    console.log(markup);
-  });
+  return generate(
+    GENERATOR_NAME,
+    (...args) =>
+      ReactDOMServer.renderToStaticMarkup(postIndexTemplate(...args)),
+    (...args) => ReactDOMServer.renderToStaticMarkup(postTemplate(...args)),
+    amountOfPosts
+  );
 }
 
 async function runOnce() {

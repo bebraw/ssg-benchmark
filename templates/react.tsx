@@ -16,10 +16,8 @@ function postIndexTemplate({
     content: (
       <ul>
         {posts.map(({ id, title }) => (
-          <li>
-            <a key={id} href={`./${id}`}>
-              ${title}
-            </a>
+          <li key={id}>
+            <a href={`./${id}`}>{title}</a>
           </li>
         ))}
       </ul>
@@ -34,7 +32,7 @@ function baseTemplate({
 }: {
   base: string;
   title: string;
-  content: ReactElement;
+  content: ReactElement | string;
 }) {
   // TODO: Figure out how to set <!DOCTYPE html> in JSX
   return (
