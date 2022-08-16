@@ -1,6 +1,7 @@
 import b from "benny";
 import { run as runBreezewind } from "../ssg/breezewind";
 import { init as init11ty, run as run11ty } from "../ssg/11ty";
+import { run as runReact } from "../ssg/react";
 import { run as runVanilla } from "../ssg/vanilla";
 
 const SUITE_NAME = "ssg";
@@ -19,6 +20,9 @@ function runOnce() {
 
         return () => run11ty();
       })
+    ),
+    ...OPTIONS.map((amount) =>
+      b.add(`react (${amount})`, async () => await runReact(amount))
     ),
     ...OPTIONS.map((amount) =>
       b.add(`vanilla (${amount})`, async () => await runVanilla(amount))

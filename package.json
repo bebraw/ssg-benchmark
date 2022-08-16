@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "wrangler pages dev .",
-    "prebenchmark:ssg": "rm -rf ./benchmark-output",
+    "prebenchmark:all": "rm -rf ./benchmark-output",
     "benchmark:all": "tsx ./benchmark-suites/all.ts",
     "benchmark:scaling": "tsx ./benchmark-suites/scaling.ts",
     "benchmark:ssg": "tsx ./benchmark-suites/ssg.ts",
