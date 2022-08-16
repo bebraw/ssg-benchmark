@@ -6,6 +6,8 @@
   "scripts": {
     "start": "wrangler pages dev .",
     "prebenchmark:ssg": "rm -rf ./benchmark-output",
+    "benchmark:all": "tsx ./benchmark-suites/all.ts",
+    "benchmark:scaling": "tsx ./benchmark-suites/scaling.ts",
     "benchmark:ssg": "tsx ./benchmark-suites/ssg.ts",
     "build:all": "npm run build:breezewind && npm run build:11ty && npm run build:vanilla",
     "build:breezewind": "tsx ./ssg/breezewind.ts",

@@ -1,19 +1,14 @@
 import b from "benny";
-import runBreezewind from "../ssg/breezewind";
-import run11ty from "../ssg/11ty";
 import runVanilla from "../ssg/vanilla";
+import { range } from "../utils";
 
-const SUITE_NAME = "ssg";
+const SUITE_NAME = "scaling";
 const BENCHMARK_OUTPUT = "benchmark-output";
-const OPTIONS = [1000];
+const OPTIONS = range(3, (i) => Math.pow(10, i));
 
 function runOnce() {
   return b.suite(
     SUITE_NAME,
-    ...OPTIONS.map((o) =>
-      b.add(`breezewind (${o})`, async () => await runBreezewind(o))
-    ),
-    ...OPTIONS.map((o) => b.add(`11ty (${o})`, async () => await run11ty(o))),
     ...OPTIONS.map((o) =>
       b.add(`vanilla (${o})`, async () => await runVanilla(o))
     ),
