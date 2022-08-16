@@ -35,7 +35,7 @@ async function generate(
 
   const posts = getPosts(amountOfPosts);
 
-  return await measure(async () => {
+  return measure(async () => {
     const base = "/ssg/posts/";
     await fs.writeFile(
       path.join(postsPath, "index.html"),
