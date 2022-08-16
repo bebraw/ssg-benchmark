@@ -4,6 +4,7 @@ import { generate } from "./utils";
 
 const GENERATOR_NAME = "react";
 
+// TODO: Consider testing renderToStaticNodeStream() as well and pipe to fs
 function run(amountOfPosts?: number) {
   return generate(
     GENERATOR_NAME,
