@@ -43,7 +43,7 @@ function baseTemplate({
         <meta charSet="UTF-8" />
         <meta content="width=device-width, initial-scale=1.0" name="viewport" />
         <base href={base} />
-        <title>${title}</title>
+        <title>{title}</title>
       </head>
       <body>
         <main>
