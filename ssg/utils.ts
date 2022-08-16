@@ -28,7 +28,7 @@ async function generate(
   amountOfPosts?: number
 ): Promise<number> {
   const outputPath = path.join(process.cwd(), "dist", generatorName);
-  const postsPath = path.join(outputPath, "ssg", "posts");
+  const postsPath = path.join(outputPath, "posts");
 
   await createDirectory(outputPath);
   await createDirectory(postsPath);
@@ -36,7 +36,7 @@ async function generate(
   const posts = getPosts(amountOfPosts);
 
   return measure(async () => {
-    const base = "/ssg/posts/";
+    const base = "/posts/";
     await fs.writeFile(
       path.join(postsPath, "index.html"),
       await postIndexTemplate({ base, title: "Posts", posts })

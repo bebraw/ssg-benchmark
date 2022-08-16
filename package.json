@@ -9,6 +9,8 @@
     "benchmark:all": "tsx ./benchmark-suites/all.ts",
     "benchmark:scaling": "tsx ./benchmark-suites/scaling.ts",
     "benchmark:ssg": "tsx ./benchmark-suites/ssg.ts",
+    "prebuild:cloudflare": "rm -rf ./dist",
+    "build:cloudflare": "npm run build:vanilla",
     "build:all": "npm run build:breezewind && npm run build:11ty && npm run build:react && npm run build:vanilla",
     "build:breezewind": "tsx ./ssg/breezewind.ts",
     "build:11ty": "tsx ./ssg/11ty.ts",
@@ -18,7 +20,7 @@
     "serve:static": "serve -p 8788 ./dist",
     "test:breezewind-on-edge": "autocannon https://ssg-benchmark.pages.dev/breezewind-on-edge/posts/",
     "test:edge": "autocannon https://ssg-benchmark.pages.dev/edge/posts/",
-    "test:ssg": "autocannon https://ssg-benchmark.pages.dev/ssg/posts/"
+    "test:ssg": "autocannon https://ssg-benchmark.pages.dev/vanilla/posts/"
   },
   "keywords": [],
   "author": "Juho Vepsäläinen",
