@@ -1,5 +1,5 @@
 import breeze, { type Component } from "breezewind";
-import type { Post } from "../types";
+import type { Comment, Post } from "../types";
 
 async function postIndexTemplate({
   base,
@@ -22,6 +22,71 @@ async function postIndexTemplate({
             { type: "a", attributes: { href: `./${id}` }, children: title },
           ],
         })),
+      },
+    ],
+  });
+}
+
+async function postTemplate({
+  base,
+  title,
+  comments = [],
+}: {
+  base: string;
+  title: string;
+  comments: Comment[];
+}) {
+  return await baseTemplate({
+    base,
+    title,
+    content: [
+      {
+        type: "div",
+        children: [
+          {
+            type: "h2",
+            children: "Comments",
+          },
+          {
+            type: "ul",
+            children: comments.map(({ content }) => ({
+              type: "li",
+              children: [{ type: "div", children: content }],
+            })),
+          },
+          {
+            type: "form",
+            attributes: {
+              action: base + "comment",
+              method: "post",
+            },
+            children: [
+              {
+                type: "label",
+                children: "Leave a comment",
+                attributes: {
+                  for: "new-comment",
+                },
+              },
+              {
+                type: "textarea",
+                attributes: {
+                  id: "new-comment",
+                  name: "comment",
+                  rows: "4",
+                  cols: "40",
+                },
+              },
+              {
+                type: "button",
+                attributes: {
+                  type: "submit",
+                },
+                children: "Send a comment",
+              },
+            ],
+          },
+        ],
       },
     ],
   });
@@ -109,4 +174,4 @@ function baseTemplate({
   });
 }
 
-export { baseTemplate, postIndexTemplate, baseTemplate as postTemplate };
+export { baseTemplate, postIndexTemplate, postTemplate };

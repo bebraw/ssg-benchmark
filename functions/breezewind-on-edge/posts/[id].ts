@@ -8,7 +8,7 @@ export async function onRequest({
   request: { url },
 }: {
   params: { id: string };
-  request: { url: string };
+  request: Request;
 }) {
   const res = await fetch(`${new URL(url).origin}/api/posts`);
   const posts = await res.json<Post[]>();
@@ -24,11 +24,15 @@ export async function onRequest({
   }
 
   return new Response(
-    await postTemplate({ ...foundPost, base: "/breezewind-on-edge/posts/" }),
+    await postTemplate({
+      ...foundPost,
+      base: "/breezewind-on-edge/posts/",
+      comments: [], // TODO: Read from db
+    }),
     {
       status: 200,
       headers: {
-        "content-type": "text/html",
+        "content-type": "text/html;charset=UTF-8",
         "cache-control": `max-age=${ONE_HOUR}`,
       },
     }
