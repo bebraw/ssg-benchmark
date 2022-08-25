@@ -2,7 +2,7 @@ import { range } from "./utils";
 
 function getPosts(n = 1000) {
   return Array.from(Array(n).keys()).map((id) => ({
-    id,
+    id: id.toString(),
     title: loremIpsum(id, 4),
     content: loremIpsum(id, 500),
   }));

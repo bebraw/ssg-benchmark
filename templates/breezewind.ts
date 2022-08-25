@@ -28,10 +28,12 @@ async function postIndexTemplate({
 }
 
 async function postTemplate({
+  id,
   base,
   title,
   comments = [],
 }: {
+  id: Post["id"];
   base: string;
   title: string;
   comments: Comment[];
@@ -63,9 +65,17 @@ async function postTemplate({
             children: [
               {
                 type: "label",
-                children: "Leave a comment",
                 attributes: {
                   for: "new-comment",
+                },
+                children: "Leave a comment",
+              },
+              {
+                type: "input",
+                attributes: {
+                  type: "hidden",
+                  name: "id",
+                  value: id,
                 },
               },
               {
