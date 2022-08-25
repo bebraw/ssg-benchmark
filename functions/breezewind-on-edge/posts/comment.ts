@@ -9,10 +9,9 @@ export async function onRequest({
 }) {
   const { headers } = request;
   const contentType = headers.get("content-type") || "";
+  const referer = headers.get("referer");
 
-  console.log("content type", contentType);
-
-  if (contentType.includes("form")) {
+  if (referer && contentType.includes("form")) {
     const formData = await request.formData();
     const body: Record<string, string> = {};
 
@@ -37,24 +36,8 @@ export async function onRequest({
       JSON.stringify(comments.concat({ id: nanoid(), content: comment }))
     );
 
-    // TODO: Pass post id here so comments can be associated to it
-    /*    await env.COMMENTS.put(id, body.comment, {
-      metadata: { id },
-    });
-*/
-
-    // TODO: Redirect back to where the request came from (request.url?)
-    return new Response(JSON.stringify(body, null, 2), {
-      status: 200,
-      headers: {
-        "content-type": "application/json",
-      },
-    });
+    return Response.redirect(referer, 301);
   }
 
-  return new Response(
-    "Not a valid request",
-    // TODO: Use the right error code
-    { status: 404 }
-  );
+  return new Response("Bad Request", { status: 400 });
 }
