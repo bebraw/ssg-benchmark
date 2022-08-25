@@ -39,7 +39,7 @@ async function generate(
     const base = "/posts/";
     await fs.writeFile(
       path.join(postsPath, "index.html"),
-      await postIndexTemplate({ base, title: "Posts", posts })
+      await postIndexTemplate({ base: "", title: "Posts", posts })
     );
 
     // TODO: This could be parallelized/workerized (good variants)
