@@ -46,6 +46,8 @@
     "@types/rmfr": "^2.0.1",
     "autocannon": "^7.9.0",
     "benny": "^3.7.1",
+    "lighthouse": "^9.6.6",
+    "playwright": "^1.25.1",
     "playwright-lighthouse": "^2.2.2",
     "prettier": "^2.7.1",
     "serve": "^14.0.1",

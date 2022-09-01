@@ -1,19 +1,36 @@
-// @ts-check
-const { test, expect } = require("@playwright/test");
+const { test } = require("@playwright/test");
+const { playAudit } = require("playwright-lighthouse");
+const playwright = require("playwright");
 
-test("blog index as a first link", async ({ page }) => {
-  // TODO: Get url from env?
-  const url = "http://0.0.0.0:8788/breezewind-on-edge/posts";
+const URL = "http://127.0.0.1:8788/breezewind-on-edge/posts/";
 
-  await page.goto(url);
+test("audit edge blog index", async ({}) => {
+  const browser = await playwright["chromium"].launch({
+    args: ["--remote-debugging-port=9222"],
+  });
+  const page = await browser.newPage();
+  await page.goto(URL);
 
-  const firstLink = page.locator("ul li:first a");
+  await playAudit({
+    page: page,
+    thresholds: {
+      performance: 50,
+      accessibility: 50,
+      "best-practices": 50,
+      seo: 50,
+      pwa: 10,
+    },
+    reports: {
+      formats: {
+        json: true, //defaults to false
+        html: true, //defaults to false
+        csv: true, //defaults to false
+      },
+      name: `edge-blog-index-audit`,
+      directory: `benchmark-output`,
+    },
+    port: 9222,
+  });
 
-  console.log(firstLink);
-
-  await expect(firstLink).toBeVisible();
-
-  // TODO: Go to the first post on the list
-  // TODO: Add a comment and verify it was added
-  // TODO: Lighthouse
+  await browser.close();
 });
