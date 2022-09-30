@@ -59,7 +59,7 @@ async function postTemplate({
           {
             type: "form",
             attributes: {
-              action: base + "comment",
+              action: "/api/comment",
               method: "post",
             },
             children: [

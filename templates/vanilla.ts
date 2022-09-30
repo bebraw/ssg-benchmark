@@ -1,4 +1,4 @@
-import type { Post } from "../types";
+import type { Comment, Post } from "../types";
 
 function postIndexTemplate({
   base,
@@ -15,6 +15,33 @@ function postIndexTemplate({
     content: `<ul>${posts
       .map(({ id, title }) => `<li><a href="./${id}">${title}</a></li>`)
       .join("")}</ul>`,
+  });
+}
+
+async function postTemplate({
+  id,
+  base,
+  title,
+  comments = [],
+}: {
+  id: Post["id"];
+  base: string;
+  title: string;
+  comments: Comment[];
+}) {
+  return baseTemplate({
+    base,
+    title,
+    content: `<div>
+    <h2>Comments</h2>
+    <ul>${comments.map(({ content }) => `<li><div>${content}</div></li>`)}</ul>
+    <form action="/api/comment" method="post">
+      <label for="new-comment">Leave a comment</label>
+      <input type="hidden" name="id" value="${id}" />
+      <textarea id="new-comment" name="comment" rows="4" cols="40" />
+      <button type="submit">Send a comment</button>
+    </form>
+  </div>`,
   });
 }
 
@@ -44,4 +71,4 @@ function baseTemplate({
   </html>`;
 }
 
-export { baseTemplate, postIndexTemplate, baseTemplate as postTemplate };
+export { baseTemplate, postIndexTemplate, postTemplate };
