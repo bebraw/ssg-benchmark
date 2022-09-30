@@ -36,7 +36,7 @@ export async function onRequest({
   return new Response(
     await postTemplate({
       ...foundPost,
-      base: "/breezewind-on-edge/posts/",
+      base: "/edge/posts/",
       comments,
     }),
     {
