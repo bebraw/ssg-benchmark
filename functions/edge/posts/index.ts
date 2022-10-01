@@ -18,7 +18,7 @@ export async function onRequest({ request: { url } }: { request: Request }) {
       headers: {
         "content-type": "text/html;charset=UTF-8",
         // Avoid caching on purpose to have a comparable result
-        "cache-control": `max-age=${ONE_HOUR}`,
+        // "cache-control": `max-age=${ONE_HOUR}`,
       },
     }
   );
