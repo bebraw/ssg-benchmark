@@ -3,7 +3,8 @@ const { playAudit } = require("playwright-lighthouse");
 const playwright = require("playwright");
 const { getReportsConfiguration } = require("./utils");
 
-const EDGE_URL = "http://127.0.0.1:8788/breezewind-on-edge/posts/";
+// Example HOST: http://127.0.0.1:8788/breezewind-on-edge
+const EDGE_URL = process.env.HOST + "/posts/";
 
 const thresholds = {
   performance: 50,
@@ -24,7 +25,7 @@ test("audit edge blog index", async ({}) => {
   await playAudit({
     page,
     thresholds,
-    reports: getReportsConfiguration("edge-blog"),
+    reports: getReportsConfiguration(process.env.NAME + "-index"),
     port,
   });
 
