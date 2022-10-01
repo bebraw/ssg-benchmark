@@ -44,7 +44,8 @@ export async function onRequest({
       status: 200,
       headers: {
         "content-type": "text/html;charset=UTF-8",
-        "cache-control": `max-age=${ONE_HOUR}`,
+        // Avoid caching on purpose to have a comparable result
+        // "cache-control": `max-age=${ONE_HOUR}`,
       },
     }
   );

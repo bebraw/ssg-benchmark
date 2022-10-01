@@ -9,7 +9,7 @@ export async function onRequest({ request: { url } }: { request: Request }) {
 
   return new Response(
     await postIndexTemplate({
-      base: "/breezewind-on-edge/posts/",
+      base: "/edge/posts/",
       title: "Posts",
       posts,
     }),
@@ -17,6 +17,7 @@ export async function onRequest({ request: { url } }: { request: Request }) {
       status: 200,
       headers: {
         "content-type": "text/html;charset=UTF-8",
+        // Avoid caching on purpose to have a comparable result
         "cache-control": `max-age=${ONE_HOUR}`,
       },
     }
