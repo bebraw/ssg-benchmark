@@ -4,7 +4,7 @@ import rmfr from "rmfr";
 import mkdirp from "mkdirp";
 import { performance } from "perf_hooks";
 import { getPosts } from "../content";
-import type { Comment, Post } from "../types";
+import type { Post } from "../types";
 
 async function generate(
   generatorName: string,
@@ -22,13 +22,13 @@ async function generate(
     base,
     title,
     content,
-    comments,
-  }: {
+  }: // comments,
+  {
     id: Post["id"];
     base: string;
     title: string;
     content: string;
-    comments: Comment[];
+    // comments: Comment[];
   }) => Promise<string> | string,
   amountOfPosts?: number
 ): Promise<number> {
@@ -54,7 +54,7 @@ async function generate(
       await mkdirp(postPath);
       await fs.writeFile(
         path.join(postPath, "index.html"),
-        await postTemplate({ ...post, base, comments: [] })
+        await postTemplate({ ...post, base })
       );
     }
   });

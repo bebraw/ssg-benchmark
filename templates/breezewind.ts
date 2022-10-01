@@ -27,7 +27,7 @@ async function postIndexTemplate({
   });
 }
 
-async function postTemplate({
+async function postTemplateWithComments({
   id,
   base,
   title,
@@ -184,4 +184,9 @@ function baseTemplate({
   });
 }
 
-export { baseTemplate, postIndexTemplate, postTemplate };
+export {
+  baseTemplate,
+  postIndexTemplate,
+  baseTemplate as postTemplate,
+  postTemplateWithComments,
+};

@@ -23,6 +23,7 @@ export async function onRequest({
     });
   }
 
+  /*
   let comments = [];
 
   try {
@@ -32,12 +33,12 @@ export async function onRequest({
       comments = JSON.parse(data);
     }
   } catch (error) {}
+  */
 
   return new Response(
     await postTemplate({
       ...foundPost,
       base: "/edge/posts/",
-      comments,
     }),
     {
       status: 200,
