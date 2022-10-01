@@ -1,7 +1,7 @@
 function getReportsConfiguration(prefix) {
   return {
     formats: { json: true, html: true, csv: true },
-    name: prefix + "-index-audit",
+    name: prefix + "-audit",
     directory: "benchmark-output",
   };
 }
