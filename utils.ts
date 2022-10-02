@@ -7,10 +7,10 @@ async function isr(
   env: { PAGE_CACHE: KVNamespace },
   waitUntil: (promise: Promise<any>) => void,
   headers: HeadersInit,
-  render: (request: Request) => {
+  render: (request: Request) => Promise<{
     status: number;
     body: string;
-  }
+  }>
 ) {
   const url = new URL(request.url);
 

@@ -13,17 +13,6 @@ export async function onRequest({
   request: Request;
   waitUntil: (promise: Promise<any>) => void;
 }) {
-  const res = await fetch(`${new URL(request.url).origin}/api/posts`);
-  const posts = await res.json<Post[]>();
-  const foundPost = posts.find((p) => p.id === id);
-
-  if (!foundPost) {
-    return new Response(`{ "error": "No matching post was found" }`, {
-      status: 500,
-      headers: { "content-type": "application/json" },
-    });
-  }
-
   return isr(
     request,
     env,
@@ -31,12 +20,22 @@ export async function onRequest({
     {
       "content-type": "text/html;charset=UTF-8",
     },
-    () => ({
-      status: 200,
-      body: postTemplate({
-        ...foundPost,
-        base: "/edge-with-isr/posts/",
-      }),
-    })
+    async (request) => {
+      const res = await fetch(`${new URL(request.url).origin}/api/posts`);
+      const posts = await res.json<Post[]>();
+      const foundPost = posts.find((p) => p.id === id);
+
+      if (!foundPost) {
+        return { status: 500, body: "" };
+      }
+
+      return {
+        status: 200,
+        body: postTemplate({
+          ...foundPost,
+          base: "/edge-with-isr/posts/",
+        }),
+      };
+    }
   );
 }
