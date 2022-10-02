@@ -53,6 +53,8 @@ wrangler kv:namespace create PAGE_CACHE
 wrangler kv:namespace create PAGE_CACHE --preview
 ```
 
+To make sure your Pages instance find them, [see these instructions](https://developers.cloudflare.com/pages/platform/functions/#kv-namespace) on how to bind them.
+
 ## Tools
 
 * https://github.com/Polymer/tachometer
