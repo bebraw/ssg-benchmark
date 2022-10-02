@@ -39,6 +39,18 @@ To generate both vanilla and edge results, run the following:
 ```
 NAME=vanilla HOST=https://ssg-benchmark.pages.dev/vanilla npm run test:playwright
 NAME=edge HOST=https://ssg-benchmark.pages.dev/edge npm run test:playwright
+NAME=edge-with-isr HOST=https://ssg-benchmark.pages.dev/edge-with-isr npm run test:playwright
+```
+
+## Creating KV stores
+
+Use the following commands to create KV stores at Cloudflare:
+
+```
+wrangler kv:namespace create COMMENTS
+wrangler kv:namespace create COMMENTS --preview
+wrangler kv:namespace create PAGE_CACHE
+wrangler kv:namespace create PAGE_CACHE --preview
 ```
 
 ## Tools
