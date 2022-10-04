@@ -14,7 +14,20 @@ const thresholds = {
   pwa: 10,
 };
 
-test("audit edge blog index", async ({}) => {
+// Run the audit five times to capture differences
+test("audit blog index #1", () => auditBlogIndex(1));
+test("audit blog index #2", () => auditBlogIndex(2));
+test("audit blog index #3", () => auditBlogIndex(3));
+test("audit blog index #4", () => auditBlogIndex(4));
+test("audit blog index #5", () => auditBlogIndex(5));
+
+test.afterAll(() => {
+  console.log(
+    "TODO - capture all audits.first-contentful-paint from json files for index"
+  );
+});
+
+async function auditBlogIndex(n) {
   const port = 9222;
   const browser = await playwright["chromium"].launch({
     args: [`--remote-debugging-port=${port}`],
@@ -25,9 +38,9 @@ test("audit edge blog index", async ({}) => {
   await playAudit({
     page,
     thresholds,
-    reports: getReportsConfiguration(process.env.NAME + "-index"),
+    reports: getReportsConfiguration(process.env.NAME + "-index-" + n),
     port,
   });
 
   await browser.close();
-});
+}
