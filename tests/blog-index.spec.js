@@ -1,7 +1,7 @@
 const { test } = require("@playwright/test");
 const { playAudit } = require("playwright-lighthouse");
 const playwright = require("playwright");
-const { getReportsConfiguration } = require("./utils");
+const { getReportsConfiguration, readAudits } = require("./utils");
 
 // Example HOST: http://127.0.0.1:8788/breezewind-on-edge
 const EDGE_URL = process.env.HOST + "/posts/";
@@ -22,9 +22,7 @@ test("audit blog index #4", () => auditBlogIndex(4));
 test("audit blog index #5", () => auditBlogIndex(5));
 
 test.afterAll(() => {
-  console.log(
-    "TODO - capture all audits.first-contentful-paint from json files for index"
-  );
+  console.log("index:", readAudits(process.env.NAME + "-index-"));
 });
 
 async function auditBlogIndex(n) {

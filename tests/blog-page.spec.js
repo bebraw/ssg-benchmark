@@ -1,7 +1,7 @@
 const { test } = require("@playwright/test");
 const { playAudit } = require("playwright-lighthouse");
 const playwright = require("playwright");
-const { getReportsConfiguration } = require("./utils");
+const { getReportsConfiguration, readAudits } = require("./utils");
 
 // Example HOST: http://127.0.0.1:8788/breezewind-on-edge
 const EDGE_URL = process.env.HOST + "/posts/";
@@ -22,14 +22,7 @@ test("audit blog page #4", () => auditBlogPage(4));
 test("audit blog page €5", () => auditBlogPage(5));
 
 test.afterAll(() => {
-  // 1. glob json files from output
-  // 2. read each json
-  // 3. read specific field
-  // 4. emit a string
-
-  console.log(
-    "TODO - capture all audits.first-contentful-paint from json files for blog page"
-  );
+  console.log("page:", readAudits(process.env.NAME + "-page-"));
 });
 
 async function auditBlogPage(n) {
