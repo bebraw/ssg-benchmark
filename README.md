@@ -42,6 +42,8 @@ NAME=edge HOST=https://ssg-benchmark.pages.dev/edge npm run test:playwright
 NAME=edge-with-isr HOST=https://ssg-benchmark.pages.dev/edge-with-isr npm run test:playwright
 ```
 
+You can see the summaries in the output (FCP in ms). To test ISR properly, make sure to remove the cache manually through Cloudflare UI before running the tests to capture the caching behavior of the first run properly.
+
 ## Creating KV stores
 
 Use the following commands to create KV stores at Cloudflare:
