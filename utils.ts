@@ -14,10 +14,14 @@ async function isr(
 ) {
   const url = new URL(request.url);
 
+  // Replace the last slash with empty to normalize foo and foo/ into the same case
   // Remove leading slashes
   // Replace /'s with -'s to avoid
   // "FileStorageError [ERR_NAMESPACE_KEY_CHILD]: Cannot put key"
-  const key = url.pathname.replace(/^\/+/, "").replace(/\//g, "-");
+  const key = url.pathname
+    .replace(/\/$/, "")
+    .replace(/^\/+/, "")
+    .replace(/\//g, "-");
 
   // Try to serve a static asset from KV
   try {
