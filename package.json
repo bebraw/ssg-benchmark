@@ -18,9 +18,10 @@
     "build:vanilla": "tsx ./ssg/vanilla.ts",
     "serve:benchmark": "serve -p 8788 ./benchmark-output",
     "serve:static": "serve -p 8788 ./dist",
-    "test:breezewind-on-edge": "autocannon https://ssg-benchmark.pages.dev/breezewind-on-edge/posts/",
-    "test:edge": "autocannon https://ssg-benchmark.pages.dev/edge/posts/",
-    "test:ssg": "autocannon https://ssg-benchmark.pages.dev/vanilla/posts/",
+    "autocannon:breezewind-on-edge": "autocannon https://ssg-benchmark.pages.dev/breezewind-on-edge/posts/",
+    "autocannon:edge": "autocannon https://ssg-benchmark.pages.dev/edge/posts/",
+    "autocannon:edge-with-isr": "autocannon https://ssg-benchmark.pages.dev/edge-with-isr/posts/",
+    "autocannon:ssg": "autocannon https://ssg-benchmark.pages.dev/vanilla/posts/",
     "test:playwright": "playwright test"
   },
   "keywords": [],

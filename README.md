@@ -57,6 +57,16 @@ wrangler kv:namespace create PAGE_CACHE --preview
 
 To make sure your Pages instance find them, [see these instructions](https://developers.cloudflare.com/pages/platform/functions/#kv-namespace) on how to bind them.
 
+## Autocannon tests
+
+Autocannon (req/s) tests are behind `autocannon:` namespace. Example.
+
+```
+npm run autocannon:edge
+npm run autocannon:edge-with-isr
+npm run autocannon:ssg
+```
+
 ## Tools
 
 * https://github.com/Polymer/tachometer
