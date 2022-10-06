@@ -19,7 +19,7 @@ test("audit blog page #1", () => auditBlogPage(1));
 test("audit blog page #2", () => auditBlogPage(2));
 test("audit blog page #3", () => auditBlogPage(3));
 test("audit blog page #4", () => auditBlogPage(4));
-test("audit blog page €5", () => auditBlogPage(5));
+test("audit blog page #5", () => auditBlogPage(5));
 
 test.afterAll(() => {
   console.log("page:", readAudits(process.env.NAME + "-page-"));

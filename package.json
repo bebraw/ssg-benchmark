@@ -22,7 +22,7 @@
     "autocannon:edge": "autocannon https://ssg-benchmark.pages.dev/edge/posts/",
     "autocannon:edge-with-isr": "autocannon https://ssg-benchmark.pages.dev/edge-with-isr/posts/",
     "autocannon:ssg": "autocannon https://ssg-benchmark.pages.dev/vanilla/posts/",
-    "test:playwright": "playwright test"
+    "playwright": "playwright test"
   },
   "keywords": [],
   "author": "Juho Vepsäläinen",

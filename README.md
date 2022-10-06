@@ -22,27 +22,15 @@ TypeScript is used for the edge code (CloudFlare workers) and the setup has been
 
 ## Playwright + Lighthouse
 
-To run the playwright tests, do the following
-
-```bash
-NAME=edge HOST=http://127.0.0.1:8788/edge npm run test:playwright
-```
-
-Above assumes that you've performed `npm start` earlier.
-
-The code is hosted on `https://ssg-benchmark.pages.dev/`.
-
-The output can be found at the `benchmark-output` directory.
-
-To generate both vanilla and edge results, run the following:
+To generate Lighthouse results, run the following:
 
 ```
-NAME=vanilla HOST=https://ssg-benchmark.pages.dev/vanilla npm run test:playwright
-NAME=edge HOST=https://ssg-benchmark.pages.dev/edge npm run test:playwright
-NAME=edge-with-isr HOST=https://ssg-benchmark.pages.dev/edge-with-isr npm run test:playwright
+npm run playwright
 ```
 
-You can see the summaries in the output (FCP in ms). To test ISR properly, make sure to remove the cache manually through Cloudflare UI before running the tests to capture the caching behavior of the first run properly.
+You can see the summaries in the output (FCP in ms) as a CSV to copy to `main.tex`.
+
+To test ISR properly, make sure to remove the cache manually through Cloudflare UI before running the tests to capture the caching behavior of the first run properly.
 
 ## Creating KV stores
 
