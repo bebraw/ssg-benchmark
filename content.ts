@@ -1,6 +1,6 @@
 import { range } from "./utils";
 
-function getPosts(n = 1000) {
+function getPosts(n = 100) {
   return Array.from(Array(n).keys()).map((id) => ({
     id: id.toString(),
     title: loremIpsum(id, 4),
