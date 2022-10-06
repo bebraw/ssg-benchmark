@@ -10,7 +10,7 @@ function getReportsConfiguration(prefix) {
 }
 
 function readAudits(pageType, auditType = "first-contentful-paint") {
-  const files = glob.sync("benchmark-output/" + pageType + "*audit.json");
+  const files = glob.sync("benchmark-output/" + pageType + "*-audit.json");
 
   const audits = files.map((f) => fs.readFileSync(f)).map((d) => JSON.parse(d));
   const fcps = audits.map((a) => a["audits"][auditType]["numericValue"]);
