@@ -21,6 +21,7 @@
     "autocannon:breezewind-on-edge": "autocannon -d=30 https://ssg-benchmark.pages.dev/breezewind-on-edge/posts/",
     "autocannon:edge": "autocannon -d=30 https://ssg-benchmark.pages.dev/edge/posts/",
     "autocannon:edge-with-isr": "autocannon -d=30 https://ssg-benchmark.pages.dev/edge-with-isr/posts/",
+    "autocannon:netlify": "autocannon -d=30 https://ssg-benchmark.netlify.app/vanilla/posts/",
     "autocannon:ssg": "autocannon -d=30 https://ssg-benchmark.pages.dev/vanilla/posts/",
     "autocannon:local:breezewind-on-edge": "autocannon -d=30 http://127.0.0.1:8788/breezewind-on-edge/posts/",
     "autocannon:local:edge": "autocannon -d=30 http://127.0.0.1:8788/edge/posts/",

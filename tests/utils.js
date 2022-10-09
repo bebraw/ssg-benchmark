@@ -13,21 +13,26 @@ function getReportsConfiguration(prefix) {
 }
 
 function printCSV() {
-  const edgeIndexFCPs = readAudits("edge-index-");
-  const edgePageFCPs = readAudits("edge-page-");
-  const edgeWithIsrIndexFCPs = readAudits("edge-with-isr-index-");
-  const edgeWithIsrPageFCPs = readAudits("edge-with-isr-page-");
-  const vanillaIndexFCPs = readAudits("vanilla-index-");
-  const vanillaPageFCPs = readAudits("vanilla-page-");
+  // TODO: Make this more dynamic and configurable
+  const edgeIndexFCPs = readAudits("cf-edge-index-");
+  const edgePageFCPs = readAudits("cf-edge-page-");
+  const edgeWithIsrIndexFCPs = readAudits("cf-edge-with-isr-index-");
+  const edgeWithIsrPageFCPs = readAudits("cf-edge-with-isr-page-");
+  const vanillaIndexFCPs = readAudits("cf-vanilla-index-");
+  const vanillaPageFCPs = readAudits("cf-vanilla-page-");
+  const netlifyIndexFCPs = readAudits("netlify-vanilla-index-");
+  const netlifyPageFCPs = readAudits("netlify-vanilla-page-");
 
   function pickRow(i) {
     return `${i + 1},${edgeIndexFCPs[i]},${edgePageFCPs[i]},${
       edgeWithIsrIndexFCPs[i]
-    },${edgeWithIsrPageFCPs[i]},${vanillaIndexFCPs[i]},${vanillaPageFCPs[i]}`;
+    },${edgeWithIsrPageFCPs[i]},${vanillaIndexFCPs[i]},${vanillaPageFCPs[i]},${
+      netlifyIndexFCPs[i]
+    },${netlifyPageFCPs[i]}`;
   }
 
   // This output should go to main.tex
-  console.log(`a,b,c,d,e,f,g
+  console.log(`a,b,c,d,e,f,g,h,i
 ${range(5)
   .map((i) => pickRow(i))
   .join("\n")}`);
