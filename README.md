@@ -55,7 +55,7 @@ npm run autocannon:edge-with-isr
 npm run autocannon:ssg
 ```
 
-To run the whole suite that emits a CSV suitable for `main.tex`, use `npm run autocannon` and copy the output. Since each test takes about 30 seconds, expect running the whole suite to take roughly 1.5 minutes.
+To run the whole suite that emits a CSV suitable for `main.tex`, use `npm run autocannon` and copy the output. Since each test takes about 30 seconds, expect running the whole suite to take roughly two minutes.
 
 ## Tools
 
