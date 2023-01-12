@@ -2,8 +2,8 @@ export async function onRequest(context: EventContext<{}, "_middleware", {}>) {
   try {
     const { pathname } = new URL(context.request.url);
 
-    // For anything else than api, wait 100ms to simulate load.
-    if (!pathname.startsWith("/api/")) {
+    // Wait 100ms to simulate load for the /edge/ routes
+    if (pathname.startsWith("/edge/")) {
       await new Promise((r) => setTimeout(r, 100));
     }
 
