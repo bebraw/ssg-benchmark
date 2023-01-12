@@ -14,6 +14,9 @@ export async function onRequest({
   const posts = await res.json<Post[]>();
   const foundPost = posts.find((p) => p.id === id);
 
+  // Wait 100ms to simulate load
+  await new Promise((r) => setTimeout(r, 100));
+
   if (!foundPost) {
     return new Response(`{ "error": "No matching post was found" }`, {
       status: 500,

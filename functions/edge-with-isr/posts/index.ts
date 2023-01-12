@@ -22,6 +22,9 @@ export async function onRequest({
       const res = await fetch(`${new URL(request.url).origin}/api/posts`);
       const posts = await res.json<Post[]>();
 
+      // Wait 100ms to simulate load
+      await new Promise((r) => setTimeout(r, 100));
+
       return {
         status: 200,
         body: postIndexTemplate({
