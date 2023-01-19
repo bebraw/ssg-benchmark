@@ -2,7 +2,7 @@
 const { test } = require("@playwright/test");
 const { playAudit } = require("playwright-lighthouse");
 const playwright = require("playwright");
-const { getReportsConfiguration, printCSV } = require("./utils");
+const { getReportsConfiguration, printCSV, printTable } = require("./utils");
 const { range } = require("../utils");
 
 const thresholds = {
@@ -19,7 +19,10 @@ testSuites("cf", "https://ssg-benchmark.pages.dev", [
   "edge-with-isr",
 ]);
 testSuites("netlify", "https://ssg-benchmark.netlify.app", ["vanilla"]);
-test.afterAll(printCSV);
+test.afterAll(() => {
+  printCSV();
+  printTable();
+});
 
 // The idea is to run similar test cases at the same time to avoid
 // weirdness related to connectivity as connection speed may vary.
