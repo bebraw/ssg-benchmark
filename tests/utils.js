@@ -55,7 +55,8 @@ function printTable() {
   // Check the output JSON files for possible audits
   const auditTypes = [
     "first-contentful-paint",
-    "interactive",
+    // Skip TTI as it seems to follow FCP closely
+    // "interactive",
     "server-response-time",
   ];
   const calculatedRows = {
@@ -128,25 +129,19 @@ function printTable() {
   });
 
   function getRow(name, property) {
-    return `${name} & ${calculatedRows[property][
-      "first-contentful-paint"
-    ].firstRun.toFixed(2)} & ${calculatedRows[property][
-      "first-contentful-paint"
-    ].median.toFixed(2)} & ${calculatedRows[property][
-      "first-contentful-paint"
-    ].average.toFixed(2)} & ${calculatedRows[
-      property
-    ].interactive.firstRun.toFixed(2)} & ${calculatedRows[
-      property
-    ].interactive.median.toFixed(2)} & ${calculatedRows[
-      property
-    ].interactive.average.toFixed(2)} & ${calculatedRows[property][
-      "server-response-time"
-    ].firstRun.toFixed(2)} & ${calculatedRows[property][
-      "server-response-time"
-    ].median.toFixed(2)} & ${calculatedRows[property][
-      "server-response-time"
-    ].average.toFixed(2)} \\\\\n`;
+    return `${name} & ${Math.round(
+      calculatedRows[property]["first-contentful-paint"].firstRun
+    )} & ${Math.round(
+      calculatedRows[property]["first-contentful-paint"].median
+    )} & ${Math.round(
+      calculatedRows[property]["first-contentful-paint"].average
+    )} & ${Math.round(
+      calculatedRows[property]["server-response-time"].firstRun
+    )} & ${Math.round(
+      calculatedRows[property]["server-response-time"].median
+    )} & ${Math.round(
+      calculatedRows[property]["server-response-time"].average
+    )} \\\\\n`;
   }
 
   const rows = [
